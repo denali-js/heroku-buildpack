@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-if ! [ -x /app/.heroku/node/bin/node ]; then
-  >&2 echo "$(which node)"
-  >&2 echo $PATH
-  >&2 echo "$(ls -la /usr/bin)"
-  >&2 echo 'It looks like Node is not available, which is required for the Denali buildpack. Did you add the Denali buildpack *after* the Node buildpack?'
-  exit 1
-fi
-
 if ! grep -q denali "$1/package.json"; then
   >&2 echo "This doesn't look like a Denali application - Denali isn't listed in the package.json"
   exit 1
