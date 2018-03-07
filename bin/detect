@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if ! hash node 2>/dev/null; then
+  >&2 echo 'Denali: it looks like Node is not available. Did you add the Denali buildpack *after* the Node buildpack?'
+  exit 1
+fi
+
+if ! grep -q denali "$1/package.json"; then
+  >&2 echo "Denali: this doesn't look like a Denali application - Denali isn't listed in the package.json"
+  exit 1
+fi
+
+echo "Denali"
+exit 0

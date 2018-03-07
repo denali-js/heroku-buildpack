@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+build_dir=$1
+cache_dir=$2
+
+cd $build_dir
+
+npx denali build --production
