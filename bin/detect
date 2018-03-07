@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 if ! [ -x /app/.heroku/node/bin/node ]; then
+  >&2 echo "$(ls -la /app/.heroku/node/bin)"
   >&2 echo 'Denali: it looks like Node is not available. Did you add the Denali buildpack *after* the Node buildpack?'
   exit 1
 fi
